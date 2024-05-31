@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blahopřání</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html {
+            background-color: #d3eff5;
+        }
+        body {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 2rem;
+            font-size: larger;
+        }
+        .card {
+            margin: auto;
+            width: 100%;
+            max-width: 500px;
+            border: none;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #d3eff5;
+        }
+        .card-body:hover .apology {
+            display: block;
+        }
+        .apology {
+            display: none;
+            color: #6c757d;
+        }
+        .favorite-links {
+            margin-top: 2rem;
+        }
+        .list-group-item a {
+            word-break: break-all; 
+        }
+    </style>
+</head>
+<body class="container">
+    <div class="main-content">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Julinku, všechno nejlepší k narozeninám ! 🎉</h2>
+                <p class="card-text">
+                    Ve dvaceti má sice člověk krásné tělo, ale v šedesáti má krásnou duši. Vše nej nej nej přeje Domča a Domča 🎂
+                </p>
+                <p class="apology">
+                    Kuk!
+                </p>
+            </div>
+        </div>
+<br>
+        <div class="holiday">
+            <div id="name" class="mt-3"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Funkce pro načtení jména pomocí API
+        async function fetchName() {
+            try {
+                const response = await fetch('https://svatkyapi.cz/api/day');
+                const data = await response.json();
+                document.getElementById('name').innerText = `Dnes má svátek: ${data.name}`;
+            } catch (error) {
+                document.getElementById('name').innerText = 'Nepodařilo se načíst jméno.';
+                console.error('Chyba při načítání API:', error);
+            }
+        }
+
+        // Zavolání funkce po načtení stránky
+        document.addEventListener('DOMContentLoaded', fetchName);
+    </script>
+
+<br><br>
+    <div class="info-strelnice">
+        <h4>Info ohledně rezervace střelnice</h4>
+        <br>
+        <p>
+            Nevolejte přímo na střelnice – rezervaci střelby takto není možné provést.
+            Rezervace střelby: Registrujte se pomocí <a href="https://dobrodruzstvinastrelnici.cz/rezervace/" target="_blank">online formuláře.</a> <br>
+            Vyberte si střelnici, datum střelby, uveďte kód voucheru a odešlete. <br>
+            Termín si rezervujte dostatečně dopředu, ke konci platnosti voucheru nemusí být již ve vámi vybraných lokalitách volná kapacita. <br>
+            Na střelnici se dostavte včas kvůli školení bezpečnosti. Z bezpečnostních důvodů není možné akceptovat zpoždění a takový voucher propadá. <br>
+            Důležité: Při rezervaci uvádějte kód pro uplatnění, nikoli kód pro darování voucheru. <br>
+            <a href="https://dobrodruzstvinastrelnici.cz/rezervace/" target="_blank">Rezervace pomocí online formuláře</a>
+        </p>
+    </div>
+<br>
+    <div class="favorite-links">
+        <h4>Tady si můžeš připnout oblíbené odkazy abys je měl po ruce ✌️ </h4>
+        <p>Stačí zkopírovat odkaz, který si chceš uložit, vložit ho do pole pod tímto textem a kliknout na přidat. Dokud ho nesmažeš zůstane tu uložený 😎</p>
+        <br>
+        <form id="link-form">
+            <div class="form-group">
+                <input type="url" id="link-url" class="form-control" placeholder="Přidat nový odkaz" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Přidat</button>
+        </form>
+        <ul id="links-list" class="list-group mt-3"></ul>
+    </div>
+<br>
+    <div class="favorite-links">
+        <h4> Pár jich máš připravených 🖖 </h4>
+        <p>Kupi je skvělá stránka na slevy, co zrovna potřebuješ si vyhledáš, a ono ti to najde obchody, ve kterých je daný produkt ve slevě a kolik stojí. <br> Třeba v tomto <a href="https://www.kupi.cz/sleva/cokolada-geisha" target="_blank">odkazu</a> hledám na Kupi Geishu. </p>
+        <br>
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title"><a href="https://www.seznam.cz/" target="_blank"><img src="img/seznam.png" weight="1200px" height="80px"></a></h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title"><a href="https://bezpecnost.csas.cz/wlogin/?app_id=GEORGE" target="_blank"><img = src="https://upload.wikimedia.org/wikipedia/commons/f/fe/%C4%8Cesk%C3%A1_spo%C5%99itelna_-_logo_2023.png" weight="1200px" height="80px"></a></h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title"><a href="https://www.kupi.cz/" target="_blank"><img src="img/Kupi.cz_retail.jpg" weight="1200px" height="80px"></a></h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title"><a href="https://fresh.iprima.cz/" target="_blank"><img src="img/logo-prima-fresh-with-bg.svg" weight="1200px" height="80px"></a></h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title"><a href="https://www.tipsport.cz/" target="_blank"><img src="img/logo-tip-sport.svg" weight="1200px" height="80px"></a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Načtení uložených odkazů po načtení stránky
+        loadLinks();
+
+        document.getElementById('link-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const url = document.getElementById('link-url').value;
+            if (url) {
+                addLinkToList(url);
+                saveLink(url);
+                document.getElementById('link-url').value = '';
+            }
+        });
+
+        document.getElementById('links-list').addEventListener('click', function(event) {
+            if (event.target.classList.contains('btn-danger')) {
+                const url = event.target.parentElement.querySelector('a').href;
+                removeLink(url);
+                event.target.parentElement.remove();
+            }
+        });
+
+        function addLinkToList(url) {
+            const li = document.createElement('li');
+            li.className = 'list-group-item d-flex justify-content-between align-items-center';
+            li.innerHTML = `<a href="${url}" target="_blank">${url}</a>
+                            <button class="btn btn-danger btn-sm">Smazat</button>`;
+            document.getElementById('links-list').appendChild(li);
+        }
+
+        function saveLink(url) {
+            let links = JSON.parse(localStorage.getItem('links')) || [];
+            links.push(url);
+            localStorage.setItem('links', JSON.stringify(links));
+        }
+
+        function loadLinks() {
+            let links = JSON.parse(localStorage.getItem('links')) || [];
+            links.forEach(addLinkToList);
+        }
+
+        function removeLink(url) {
+            let links = JSON.parse(localStorage.getItem('links')) || [];
+            links = links.filter(link => link !== url);
+            localStorage.setItem('links', JSON.stringify(links));
+        }
+    </script>
+
+</body>
+</html>
